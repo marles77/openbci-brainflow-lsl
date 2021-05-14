@@ -1,0 +1,52 @@
+# ==== settings8.yml ====
+
+# parameters for board and session
+args: 
+    timeout: 0
+    ip_address:
+    board_id: 0         # required!
+    serial_port: COM3   # Mac: /dev/cu.usbserial-DM00D7TW
+    streamer_params:
+    name: my_obci       # required!
+    data_type:          # required!
+        - EXG
+        #- AUX
+    channel_names: 
+        EXG: VOG,2,3,4,5,6,7,8 # ,9,10,11,12,13,14,15,16 # required if used!
+        EEG: VOG,2,3,4,5,6,7,8 # ,9,10,11,12,13,14,15,16 # required if used!
+        AUX: x,y,z      # required if used
+    uid: brainflow      # required!
+    daisy_attached: yes # yes- Daisy is physically attached to Cyton; no- no Daisy
+    max_time: 1800      # required! Max 30 min.; if unlimited time needed, -> 
+                        # use some huge number here e.g. 360000 (100h)
+    delay: 0
+
+# parameters for external marker stream
+arduino:
+    serial_port: COM4
+    baud: 19200         # must be the same as baud rate set for arduino 
+    name: arduino
+    type: Markers       # do not change that
+    channel_count: 1
+    channel_format: int32
+    source_id: arduino_stream_666
+    delay: 0
+
+# commands sent to board; if you use Daisy, uncomment channels 9-16
+commands: 
+    chan1: x1040100X    # +
+    chan2: x2160110X    # -
+    chan3: x3160110X    # -
+    chan4: x4160110X    # -
+    chan5: x5160110X    # -
+    chan6: x6161000X    # -
+    chan7: x7161000X    # -
+    chan8: x8161000X    # -
+    #chan9: xQ060110X   # -
+    #chan10: xW060110X  # -
+    #chan11: xE060110X  # -
+    #chan12: xR060110X  # -
+    #chan13: xT060110X  # -
+    #chan14: xY060110X  # -
+    #chan15: xU060110X  # -
+    #chan16: xI060110X  # -
