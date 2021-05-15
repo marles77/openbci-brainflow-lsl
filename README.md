@@ -24,7 +24,7 @@ The script (written in Python 3.8) enables to stream in parallel several types o
 * Open BCI board channels such as EXG/EEG and AUX (accelerometer; if you want to use it, just uncomment line 13 in the settings file)
 * Triggers/markers from serial port connected to Arduino board, e.g. photosensors, switch etc. (an example of a simple sketch is included in ```trigger_photo.ino``` file)
 
-##Limitations
+## Limitations
 The script has been tested only on Windows with with Cyton + Dongle and Cyton + Daisy + Dongle, for now.
 
 ## Acknowledgments
