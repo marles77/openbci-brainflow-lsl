@@ -41,8 +41,8 @@ The script (written in Python 3.8) enables to stream in parallel several types o
 * Open BCI board channels such as EXG/EEG and AUX (accelerometer; if you want to use it, just uncomment line 13 in the settings file)
 * Triggers/markers from serial port connected to Arduino board, e.g. photosensors, switch etc. (an example of a simple sketch is included in ```trigger_photo.ino``` file)
 
-## Limitations
-The script has been tested only on Windows with with Cyton + Dongle and Cyton + Daisy + Dongle, for now.
+## Limitations and known issues
+The script has been tested only on Windows with Cyton + Dongle and Cyton + Daisy + Dongle, for now. Any feedback from tests performed on other platforms will be much appreciated.
 
 ## Acknowledgments
 This program is based on a script originally created by [@retiutut](https://github.com/OpenBCI/OpenBCI_GUI/tree/master/Networking-Test-Kit/LSL). I was also inspired by a similar project [OpenBCI_LSL](https://github.com/openbci-archive/OpenBCI_LSL)
@@ -64,3 +64,4 @@ This program is based on a script originally created by [@retiutut](https://gith
 |x|1|0|4|0|0|0|0|X|
 |x|2|0|6|0|1|1|0|X|
 |x|7|1|6|1|0|0|0|X|
+---
