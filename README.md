@@ -14,6 +14,7 @@ Steps:
 1. View and analyze your data using free software e.g. [EEGLab](https://sccn.ucsd.edu/eeglab/index.php) or [Python MNE library](https://mne.tools/stable/index.html)
 
 My Arduino circuit:
+
 <img src="https://github.com/marles77/openbci-brainflow-lsl/blob/master/arduino_photo.PNG" width="400">
 
 
