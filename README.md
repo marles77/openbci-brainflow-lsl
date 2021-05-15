@@ -1,4 +1,4 @@
-# openbci-brainflow-lsl
+# OpenBCI-Brainflow-LSL
 ---
 Use [BrainFlow library](https://github.com/brainflow-dev/brainflow) to read data from Open BCI board and send it as [Lab Streaming Layer (LSL)](https://github.com/sccn/labstreaminglayer) streams.
 
