@@ -9,7 +9,7 @@ Install dependencies with:
 
 ## Usage
 Steps:
-1. Set up your own settings file. An example of such file is included in this repo as ```settings8.yml```. If you are not going to use Arduino as a source of triggers, just comment out lines 25-33. To see what channel commands (sent to Cyton board) mean, go to [Cyton channels commands](#cyton-channels-commands). A full description can be found in [Open BCI docs](https://docs.openbci.com/docs/02Cyton/CytonSDK). In this examplary file only channels 1-5 are powered up. Default commands are defined as a constant in ```obci_brainflow_lsl.py```
+1. Set up your own settings file. An example of such file is included in this repo as ```settings8.yml```. If you are not going to use Arduino as a source of triggers, just comment out lines 25-33. To see what channel commands (sent to Cyton board) mean, go to [Cyton channels commands](#cyton-channels-commands). A full description can be found in [Open BCI docs](https://docs.openbci.com/docs/02Cyton/CytonSDK). In this examplary file only channels 1-6 are powered up. Default commands are defined as a constant in ```obci_brainflow_lsl.py```
 1. Run the script with a command including one required argument ```--set``` with the name of a YAML file containing settings: ```python obci_brainflow_lsl.py --set settings8.yml```
 1. Record all your LSL streams using e.g. [Lab Recorder](https://github.com/labstreaminglayer/App-LabRecorder) to one *.XDF file
 1. View and analyze your data using free software e.g. [EEGLab](https://sccn.ucsd.edu/eeglab/index.php) or [Python MNE library](https://mne.tools/stable/index.html)
