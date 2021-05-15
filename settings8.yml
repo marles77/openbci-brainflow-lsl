@@ -12,8 +12,8 @@ args:
         - EXG
         #- AUX
     channel_names: 
-        EXG: VOG,2,3,4,5,6,7,8 # ,9,10,11,12,13,14,15,16 # required if used!
-        EEG: VOG,2,3,4,5,6,7,8 # ,9,10,11,12,13,14,15,16 # required if used!
+        EXG: VEOG,Fz,C3,C4,P3,P4,O1,O2 # ,9,10,11,12,13,14,15,16 # required if used!
+        EEG: VEOG,Fz,C3,C4,P3,P4,O1,O2 # ,9,10,11,12,13,14,15,16 # required if used!
         AUX: x,y,z      # required if used
     uid: brainflow      # required!
     daisy_attached: yes # yes- Daisy is physically attached to Cyton; no- no Daisy
@@ -35,11 +35,11 @@ arduino:
 # commands sent to board; if you use Daisy, uncomment channels 9-16
 commands: 
     chan1: x1040100X    # +
-    chan2: x2160110X    # -
-    chan3: x3160110X    # -
-    chan4: x4160110X    # -
-    chan5: x5160110X    # -
-    chan6: x6161000X    # -
+    chan2: x2060110X    # +
+    chan3: x3060110X    # +
+    chan4: x4060110X    # +
+    chan5: x5060110X    # +
+    chan6: x6060110X    # +
     chan7: x7161000X    # -
     chan8: x8161000X    # -
     #chan9: xQ060110X   # -
