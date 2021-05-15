@@ -15,7 +15,7 @@ Steps:
 1. View and analyze your data using free software e.g. [EEGLab](https://sccn.ucsd.edu/eeglab/index.php) or [Python MNE library](https://mne.tools/stable/index.html)
 
 My Cyton setup:
-|Channel num|Electrode(s) position|Cyton Board Pin|Board command|
+|Channel nr|Electrode(s) position|Cyton Board Pin|Board command|
 |---|---|---|---|
 |1|-VEOG|Bottom N1P|x1040100X|
 ||+VEOG|Top N1P||
@@ -53,14 +53,14 @@ This program is based on a script originally created by [@retiutut](https://gith
 ||CHANNEL|POWER_DOWN|GAIN_SET|INPUT_TYPE_SET|BIAS_SET|SRB2_SET|SRB1_SET||
 |---|---|---|---|---|---|---|---|---|
 |x|1-8|0-1|0-6|0-7|0-1|0-1|0-1|X|
-||||0 = Gain 1|0 ADSINPUT_NORMAL|||||
-||||1 = Gain 2|1 ADSINPUT_SHORTED|||||
-||||2 = Gain 4|2 ADSINPUT_BIAS_MEAS|||||
-||||3 = Gain 6|3 ADSINPUT_MVDD|||||
-||||4 = Gain 8|4 ADSINPUT_TEMP|||||
-||||5 = Gain 12|5 ADSINPUT_TESTSIG|||||
-||||6 = Gain 24|6 ADSINPUT_BIAS_DRP|||||
-|||||7 ADSINPUT_BIAS_DRN|||||
+||||0 = Gain 1|0 NORMAL|||||
+||||1 = Gain 2|1 SHORTED|||||
+||||2 = Gain 4|2 BIAS_MEAS|||||
+||||3 = Gain 6|3 MVDD|||||
+||||4 = Gain 8|4 TEMP|||||
+||||5 = Gain 12|5 TESTSIG|||||
+||||6 = Gain 24|6 BIAS_DRP|||||
+|||||7 BIAS_DRN|||||
 |x|1|0|4|0|0|0|0|X|
 |x|2|0|6|0|1|1|0|X|
 |x|7|1|6|1|0|0|0|X|
