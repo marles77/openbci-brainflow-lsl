@@ -2,7 +2,7 @@
 ---
 Use [BrainFlow library](https://github.com/brainflow-dev/brainflow) to read data from Open BCI board and send it as [ab Streaming Layer (LSL)](https://github.com/sccn/labstreaminglayer) streams.
 
-Dependencies
+## Dependencies
 Install dependencies with:
 
 ```pip install --upgrade numpy brainflow pylsl pyserial PyYAML``` 
