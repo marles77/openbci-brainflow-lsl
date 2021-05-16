@@ -10,8 +10,9 @@ Install dependencies with:
 ## Usage
 Steps:
 1. Set up your own settings file. An example of such file is included in this repo as ```settings8.yml```. If you are not going to use Arduino as a source of triggers, just comment out lines 25-33. To see what channel commands (sent to Cyton board) mean, go to [Cyton channels commands](#cyton-channels-commands). A full description can be found in [Open BCI docs](https://docs.openbci.com/docs/02Cyton/CytonSDK). In this examplary file only channels 1-6 are powered up. Default commands are defined as a constant in ```obci_brainflow_lsl.py```
-1. Run the script with a command including one required argument ```--set``` with the name of a YAML file containing settings: ```python obci_brainflow_lsl.py --set settings8.yml```
-1. Record all your LSL streams using e.g. [Lab Recorder](https://github.com/labstreaminglayer/App-LabRecorder) to one *.XDF file
+1. Set up your EEG (and Arduino if needed), check signal quality using [OpenBCI GUI](https://docs.openbci.com/docs/06Software/01-OpenBCISoftware/GUIDocs)
+1. Run the script with a command including one required argument ```--set``` with the name of a YAML file containing settings: ```python obci_brainflow_lsl.py --set settings8.yml``` and continue with the steps (initiating the session, sending commands, commencing the stream) until the LSL stream is established
+1. Record all your LSL streams (continuous data and markers) using e.g. [Lab Recorder](https://github.com/labstreaminglayer/App-LabRecorder) to one *.XDF file
 1. View and analyze your data using free software e.g. [EEGLab](https://sccn.ucsd.edu/eeglab/index.php) or [Python MNE library](https://mne.tools/stable/index.html)
 
 My Cyton setup:
@@ -52,7 +53,7 @@ This program is based on a script originally created by [@retiutut](https://gith
 
 ||CHANNEL|POWER_DOWN|GAIN_SET|INPUT_TYPE_SET|BIAS_SET|SRB2_SET|SRB1_SET||
 |---|---|---|---|---|---|---|---|---|
-|x|1-8|0-1|0-6|0-7|0-1|0-1|0-1|X|
+|x|1-8*|0-1|0-6|0-7|0-1|0-1|0-1|X|
 ||||0 Gain 1|0 NORMAL|||||
 ||||1 Gain 2|1 SHORTED|||||
 ||||2 Gain 4|2 BIAS_MEAS|||||
@@ -65,3 +66,4 @@ This program is based on a script originally created by [@retiutut](https://gith
 |x|2|0|6|0|1|1|0|X|
 |x|7|1|6|1|0|0|0|X|
 ---
+*channels 9-16 are labeled Q,W,E,R,T,Y,U,I
