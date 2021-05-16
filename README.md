@@ -33,7 +33,7 @@ My Cyton setup:
 
 My Arduino circuit:
 
-<img src="https://github.com/marles77/openbci-brainflow-lsl/blob/master/arduino_photo.PNG" width="600">
+<img src="https://github.com/marles77/openbci-brainflow-lsl/blob/master/arduino.PNG" width="600">
 
 
 ## Features
