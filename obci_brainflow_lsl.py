@@ -1,10 +1,10 @@
 # obci_brainflow_lsl.py
 '''
-Author: Marcin Lesniak https://github.com/
+Author: Marcin Lesniak @marles77 https://github.com/marles77/openbci-brainflow-lsl
 Open BCI + BrainFlow + LSL
 Use BrainFlow to read data from Open BCI board and send it as LSL streams.
-This program is based on a script originally created by Richard Waltman (OpenBCI):
-https://github.com/OpenBCI/OpenBCI_GUI/tree/master/Networking-Test-Kit/LSL
+This program is based on a script originally created by Richard Waltman  @retiutut
+(OpenBCI): https://github.com/OpenBCI/OpenBCI_GUI/tree/master/Networking-Test-Kit/LSL
 
 Install dependencies with:
 pip install --upgrade numpy brainflow pylsl pyserial PyYAML 
@@ -23,7 +23,6 @@ import numpy as np
 import threading
 import brainflow
 from brainflow.board_shim import BoardShim, BrainFlowInputParams
-#from brainflow.data_filter import DataFilter, FilterTypes, AggOperations # not recomended
 from pylsl import StreamInfo, StreamOutlet, local_clock
 
 # ==== constants ====
@@ -71,9 +70,12 @@ def read_settings(file_name):
 def user_choice(prompt, board = None, serial = None, thread_initiated = False):
     '''Awaits user's choice (yes or quit). 
     This function can be used to give the user some control'''
-
+    
     user_res = ''
-    while user_res != 'y':
+    while True:#user_res not in ('y', 'q'):
+        user_res = input(CYELLOW + prompt + CEND)
+        if (user_res == 'y') and (not thread_initiated) and (not stop_event.is_set()):
+            break
         if user_res == 'q':
             if thread_initiated:
                 stop_event.set() # message for threads to stop
@@ -91,7 +93,8 @@ def user_choice(prompt, board = None, serial = None, thread_initiated = False):
             print('The end')
             time.sleep(1)
             sys.exit()
-        user_res = input(CYELLOW + prompt + CEND)
+        else:
+            continue
 
 
 def default_chan_commands(board_id, chan_commands = None):
@@ -182,7 +185,7 @@ def collect_markers(serial, outlet, marker_delay):
                 outlet.push_sample(x = [marker], timestamp = stamp)
                 #print(f"Marker: {marker} -> time: {stamp}")
                 
-    print("Stopped collecting markers")
+    #print("Stopped collecting markers")
 
 
 def collect_cont(board, args, srate, outlet, fw_delay):
@@ -213,11 +216,13 @@ def collect_cont(board, args, srate, outlet, fw_delay):
                 sent_samples[type] += required_samples
                 
         if elapsed_time > args['max_time']:
-            print(CRED + "Time's up!" + CEND)
-            break
+            stop_event.set() # message for threads to stop
+            print(CRED + "\nTime limit reached! Data collection has been stopped." + CEND
+                  + CYELLOW + "\nPress 'q' + ENTER to exit\n--> " + CEND, end='')
+
         time.sleep(1)
         
-    print("Stopped collecting data")
+    #print("Stopped collecting data")
 
 
 # ==== main function ====
@@ -349,21 +354,9 @@ def main(argv):
         thread_markers.start()
 
     # wait for stop message from user while running data collecting threads
-    try:
-        time.sleep(2)
-        user_choice("To stop streaming and quit press 'q' + ENTER\n--> ", board = board, serial = ser, thread_initiated = True)
-    except KeyboardInterrupt:
-        print(CRED + "CTRL + c pressed / Streaming stopped" + CEND)
-        stop_event.set() # message for threads to stop
-        time.sleep(1)
-        board.stop_stream()
-        board.release_session()
-        if ser:
-            ser.write("c".encode()) # message for arduino to stop streaming
-            time.sleep(1)
-            ser.close()
-        print("The end")
-    
+    time.sleep(2)
+    user_choice("To stop streaming and quit press 'q' + ENTER\n--> ", board = board, serial = ser, thread_initiated = True)
+
 
 # ==== start the program ====
 if __name__ == "__main__":
