@@ -72,7 +72,7 @@ def user_choice(prompt, board = None, serial = None, thread_initiated = False):
     This function can be used to give the user some control'''
     
     user_res = ''
-    while True:#user_res not in ('y', 'q'):
+    while True:
         user_res = input(CYELLOW + prompt + CEND)
         if (user_res == 'y') and (not thread_initiated) and (not stop_event.is_set()):
             break
