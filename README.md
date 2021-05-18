@@ -3,7 +3,7 @@
 Uses Python, [BrainFlow](https://github.com/brainflow-dev/brainflow), and [pylsl](https://github.com/labstreaminglayer/liblsl-Python) to read data from Open BCI board and send it as [Lab Streaming Layer (LSL)](https://github.com/sccn/labstreaminglayer) streams.
 
 ## Dependencies
-Install dependencies with:
+Install dependencies in your environment with:
 
 ```pip install --upgrade numpy brainflow pylsl pyserial PyYAML``` 
 
