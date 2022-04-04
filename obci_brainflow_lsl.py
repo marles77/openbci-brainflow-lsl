@@ -36,7 +36,7 @@ OBCI_COMMANDS = ("x1060110X", "x2060110X", "x3060110X", "x4060110X", # channels 
                  "x5060110X", "x6060110X", "x7060110X", "x8060110X", # channels 5-8   /Cyton
                  "xQ060110X", "xW060110X", "xE060110X", "xR060110X", # channels 9-12  /Daisy
                  "xT060110X", "xY060110X", "xU060110X", "xI060110X") # channels 13-16 /Daisy
-BOARD_N_CHANNELS = {-1: 8, 0: 8, 5: 8, 2: 16, 6: 16} # Cyton or Cyton + Daisy
+BOARD_N_CHANNELS = {-1: 16, 0: 8, 5: 8, 2: 16, 6: 16} # Synthetic board, Cyton or Cyton + Daisy
 ALLOWED_DATA_TYPES = ['EXG', 'AUX']
 REQUIRED_ARGS = ("board_id", "name", "data_type", "channel_names", "uid", "max_time")
 REQUIRED_ARDUINO = ("name", "type", "channel_count", "channel_format", "source_id")
